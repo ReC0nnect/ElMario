@@ -12,9 +12,14 @@ public class PlayerSpawnPoint : MonoBehaviour, ISpawnPoint<PlayerView>
         gameObject.SetActive(false);
     }
 
-    public PlayerView Spawn()
+    public PlayerView Spawn(Transform parent)
     {
-        SpawnedInstance = Instantiate(PlayerPrefab);
+        if (SpawnedInstance != null)
+        {
+            return SpawnedInstance;
+        }
+
+        SpawnedInstance = Instantiate(PlayerPrefab, parent);
 
         SpawnedInstance.transform.position = transform.position;
         return SpawnedInstance;

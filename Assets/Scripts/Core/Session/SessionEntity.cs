@@ -6,6 +6,7 @@ public class SessionEntity : IUpdatable, IFixedUpdatable
 
     public InputSystem Input;
     public CameraSystem Camera;
+    public SpawnSystem Spawn;
     public PlayerEntity Player;
 
     readonly IUpdatable[] Updatables;
@@ -14,6 +15,7 @@ public class SessionEntity : IUpdatable, IFixedUpdatable
     public SessionEntity()
     {
         Input = new InputSystem();
+        Spawn = new SpawnSystem();
         Player = new PlayerEntity(Input);
         Camera = new CameraSystem(Player);
 

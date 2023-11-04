@@ -15,8 +15,18 @@ public class PlayerEntity : ITransform
         MovingActions.OnMove += Move;
         MovingActions.OnJump += Jump;
 
-        var playerSpawnPoint = Object.FindObjectOfType<PlayerSpawnPoint>();
-        Player = playerSpawnPoint.Spawn();
+        var playerSpawnPoint = Object.FindObjectOfType<PlayerSpawnPoint>(true);
+        Player = playerSpawnPoint.Spawn(null);
+        Player.OnHitHead += DestroyBlock;
+    }
+
+    void DestroyBlock(Collider2D collider)
+    {
+        if (collider.TryGetComponent(out LevelObjectCollider levelObjectCollider)
+            && levelObjectCollider.LevelObject is IHeadInteractable interactable)
+        {
+            interactable.Interact();
+        }
     }
 
     ~PlayerEntity()
