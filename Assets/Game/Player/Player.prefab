@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5795281437781820593}
   - component: {fileID: 4250096756304657001}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -78,7 +78,7 @@ GameObject:
   - component: {fileID: 454275429806189195}
   - component: {fileID: 8473661547399540406}
   - component: {fileID: 5102234727690870867}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: FootTrigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -158,7 +158,7 @@ GameObject:
   - component: {fileID: 3364207218425516398}
   - component: {fileID: 5202066838274941902}
   - component: {fileID: 8112078059446469555}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: HeadTrigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -237,6 +237,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3516439894481163861}
   - component: {fileID: 4527612640941107363}
+  - component: {fileID: -5515760759034750475}
   - component: {fileID: 7332680933225631843}
   m_Layer: 0
   m_Name: Player
@@ -291,6 +292,27 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
+--- !u!95 &-5515760759034750475
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3227176740272198698}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 904e76659e67aaa47aef4beae96a5e79, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!114 &7332680933225631843
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -311,6 +333,12 @@ MonoBehaviour:
   JumpSpeed: 15
   MaxSpeed: 7
   MaxJumpSpeed: 7
+  Animator: {fileID: -5515760759034750475}
+  AttackFromAboveLayer:
+    serializedVersion: 2
+    m_Bits: 256
+  AttackFromAboveTresshold: 0.2
+  AttackFromAboveDistance: 0.5
 --- !u!1 &3715800466497628559
 GameObject:
   m_ObjectHideFlags: 0

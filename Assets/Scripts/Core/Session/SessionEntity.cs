@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System.Linq;
+using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SessionEntity : IUpdatable, IFixedUpdatable
 {
@@ -24,6 +26,12 @@ public class SessionEntity : IUpdatable, IFixedUpdatable
             Input,
             Camera
         };
+
+        var initableObjects = Object.FindObjectsOfType<MonoBehaviour>(true).OfType<ISessionInit>();
+        foreach (var obj in initableObjects)
+        {
+            obj.OnSessionInit(this);
+        }
     }
 
     public static SessionEntity Create()
@@ -42,5 +50,15 @@ public class SessionEntity : IUpdatable, IFixedUpdatable
     public void FixedUpdate()
     {
 
+    }
+
+    public void Replay()
+    {
+        SceneManager.LoadScene(0);
+    }
+
+    public void CleanUp()
+    {
+        Current = null;
     }
 }

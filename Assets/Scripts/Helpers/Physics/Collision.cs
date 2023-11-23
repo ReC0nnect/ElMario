@@ -5,12 +5,12 @@ namespace Physics
 {
     public interface ICollision2DEnterHandler
     {
-        void OnCollisionEnter(Collision2D collision, Collision collision2D);
+        void OnCollisionEnter(Collision2D collision, Collision trigger);
     }
 
     public interface ICollision2DExitHandler
     {
-        void OnCollisionExit(Collision2D collision, Collision collision2D);
+        void OnCollisionExit(Collision2D collision, Collision trigger);
     }
 
     public class Collision : MonoBehaviour

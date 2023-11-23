@@ -19,4 +19,9 @@ public class SessionStarter : MonoBehaviour
     {
         Session.FixedUpdate();
     }
+
+    void OnDestroy()
+    {
+        Session.CleanUp();
+    }
 }
